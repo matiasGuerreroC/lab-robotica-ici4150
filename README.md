@@ -66,6 +66,24 @@ Video:
     Si no se controla la velocidad de los motores, estos pueden girar a diferentes velocidades debido a variaciones mecánicas o de fricción. Esto provoca desviaciones en la trayectoria, especialmente al intentar avanzar en línea recta, lo que reduce la precisión de la navegación.
 
 
+
+### Parte 2: Cinemática y Dinámica de Robots Móviles Usando un IMU
+
+- Aplicar la ecuación de cinemática diferencial para estimar la posición del robot usando tiempo y velocidad de motores
+- Hacer que el robot se mueva en línea recta y registrar desviaciones usando el sensor IMU para detectar la inclinación y giro del robot.
+- ﻿﻿Usar el sensor IMU MPU6050 para medir la inclinación del robot y ajustar su dirección en tiempo real, realizando correcciones en el movimiento de acuerdo a su orientación.
+- Programar el PWM para controlar la velocidad de los motores y hacer que el robot se mueva a diferentes velocidades sin IMU, variando el tiempo de activación de los motores.
+
+
+#### Preguntas
+
+**1. ¿Cómo se calcula la velocidad del robot sin encoders usando PWM?**
+
+      Dado que el PWM no permite medir directamente la velocidad del robot, esta se puede estimar de forma indirecta estableciendo una relación empírica entre los valores de PWM aplicados a los motores y la velocidad resultante. Para ello, se debe realizar una calibración previa, en la cual el robot avanza con distintos valores de PWM mientras se mide el tiempo que tarda en recorrer una distancia conocida. Con estos datos, se calcula la velocidad utilizando la fórmula:
+velocidad = distancia / tiempo.
+
+Una vez obtenidas múltiples mediciones, es posible construir una tabla o función que relacione cada nivel de PWM con una velocidad aproximada. Aunque esta estimación no es tan precisa como la que se obtendría con encoders, permite lograr un control básico de la velocidad del robot durante su operación.
+
 ---
 
 > Este archivo será actualizado a medida que avancemos con las entregas.
