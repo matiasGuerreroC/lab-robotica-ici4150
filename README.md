@@ -29,15 +29,22 @@ Este repositorio contendrá el desarrollo y entregas de los siguientes laborator
 
 ## Laboratorio 1
 
+#### Código utilizado
+
+El código utilizado para implementar los movimientos básicos del robot se encuentra en:
+
+[Lab1/basic_move.ino](Lab1/basic_move.ino)
+
+Este archivo contiene las funciones para avanzar, retroceder, girar y detenerse utilizando control PWM sobre ambos motores. El robot fue probado en distintas direcciones a una velocidad configurable.
+
 ### Parte 1: Identificación de Componentes y Configuración
 - Conectar Arduino UNO con el driver de motores y programar el movimiento básico de los motores (adelante, atrás, giro) sin controlar la velocidad.
 - Verificar el funcionamiento del sensor ultrasónico HC-SR04 midiendo distancias.
 - Analizar los datos del IMU MPUC6050 para medir inclinación o giros
 del robot.
 
-Video: 
-[Movimientos básicos de los motores](https://www.youtube.com/shorts/A4MSk1yM4Hs)
-
+Demostración de avance, retroceso y giros controlados con PWM.
+[Ver video - Movimientos básicos de los motores](https://www.youtube.com/shorts/A4MSk1yM4Hs)  
 
 
 #### Preguntas
