@@ -8,10 +8,6 @@ const int IN4 = 6;
 const int ENA = 9;  // PWM motor izquierdo
 const int ENB = 10; // PWM motor derecho
 
-// Velocidades base (ajustables)
-const int VELOCIDAD_IZQ = 200; // 0 a 255
-const int VELOCIDAD_DER = 200;
-
 void setup() {
   pinMode(IN1, OUTPUT); pinMode(IN2, OUTPUT);
   pinMode(IN3, OUTPUT); pinMode(IN4, OUTPUT);
@@ -19,20 +15,20 @@ void setup() {
 }
 
 // Función para avanzar
-void avanzar(int tiempo) {
+void avanzar(int tiempo, int velocidad) {
   digitalWrite(IN1, LOW); digitalWrite(IN2, HIGH);
   digitalWrite(IN3, LOW); digitalWrite(IN4, HIGH);
-  analogWrite(ENA, VELOCIDAD_IZQ);
-  analogWrite(ENB, VELOCIDAD_DER);
+  analogWrite(ENA, velocidad);
+  analogWrite(ENB, velocidad);
   delay(tiempo);
 }
 
 // Función para retroceder
-void retroceder(int tiempo) {
+void retroceder(int tiempo, int velocidad) {
   digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW);
   digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW);
-  analogWrite(ENA, VELOCIDAD_IZQ);
-  analogWrite(ENB, VELOCIDAD_DER);
+  analogWrite(ENA, velocidad);
+  analogWrite(ENB, velocidad);
   delay(tiempo);
 }
 
@@ -45,20 +41,31 @@ void detenerse(int tiempo) {
   delay(tiempo);
 }
 
-// Función para girar a la derecha (motor izquierdo activo)
-void girarDerecha(int tiempo) {
+// Función para girar a la derecha
+void girarDerecha(int tiempo, int velocidad) {
   digitalWrite(IN1, LOW); digitalWrite(IN2, HIGH);
-  digitalWrite(IN3, LOW); digitalWrite(IN4, LOW);
-  analogWrite(ENA, VELOCIDAD_IZQ);
-  analogWrite(ENB, 0);
+  digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW);
+  analogWrite(ENA, velocidad);
+  analogWrite(ENB, velocidad);
+  delay(tiempo);
+}
+
+// Función para girar a la izquierda
+void girarIzquierda(int tiempo, int velocidad) {
+  digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW);
+  digitalWrite(IN3, LOW); digitalWrite(IN4, HIGH);
+  analogWrite(ENA, velocidad);
+  analogWrite(ENB, velocidad);
   delay(tiempo);
 }
 
 void loop() {
-  avanzar(500);
+  avanzar(500, 200);
   detenerse(1000);
-  retroceder(500);
+  retroceder(500, 200);
   detenerse(1000);
-  girarDerecha(500);
+  girarDerecha(500, 200);
+  detenerse(1000);
+  girarIzquierda(500, 200);
   detenerse(1000);
 }
