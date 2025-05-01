@@ -57,13 +57,16 @@ Video:
 
    
 **3. ¿Cómo afecta la falta de encoders a la precisión del movimiento?** 
-    Sin el uso de encoders, el robot no puede saber con exactitud cuánto ha girado una rueda ni cuánta distancia ha recorrido. Lo cual genera errores que se acumulan durante el movimiento, dificultando mantener una trayectoria recta y limitando la capacidad de realizar movimientos precisos o repetibles, como avanzar exactamente un metro o girar 90°.
+    
+   Sin el uso de encoders, el robot no puede saber con exactitud cuánto ha girado una rueda ni cuánta distancia ha recorrido. Lo cual genera errores que se acumulan durante el movimiento, dificultando mantener una trayectoria recta y limitando la capacidad de realizar movimientos precisos o repetibles, como avanzar exactamente un metro o girar 90°.
 
 **4. ¿Qué es PWM y cómo ayuda a controlar la velocidad de los motores?**
-    El Pulse Width Modulation (PWM) o Modulación por Ancho de Pulso es una técnica que consiste en enviar pulsos digitales a un motor con una frecuencia fija pero con un ciclo de trabajo variable (duty cycle). Al variar el duty cycle, se modifica el tiempo durante el cual el motor recibe corriente en cada ciclo. Esto simula una tensión promedio menor, lo que permite controlar la velocidad del motor sin necesidad de variar el voltaje de alimentación.
+    
+   El Pulse Width Modulation (PWM) o Modulación por Ancho de Pulso es una técnica que consiste en enviar pulsos digitales a un motor con una frecuencia fija pero con un ciclo de trabajo variable (duty cycle). Al variar el duty cycle, se modifica el tiempo durante el cual el motor recibe corriente en cada ciclo. Esto simula una tensión promedio menor, lo que permite controlar la velocidad del motor sin necesidad de variar el voltaje de alimentación.
 
 **5. ¿Cómo afecta el control de velocidad a la precisión de la navegación sin encoders?**
-    Si no se controla la velocidad de los motores, estos pueden girar a diferentes velocidades debido a variaciones mecánicas o de fricción. Esto provoca desviaciones en la trayectoria, especialmente al intentar avanzar en línea recta, lo que reduce la precisión de la navegación.
+    
+   Si no se controla la velocidad de los motores, estos pueden girar a diferentes velocidades debido a variaciones mecánicas o de fricción. Esto provoca desviaciones en la trayectoria, especialmente al intentar avanzar en línea recta, lo que reduce la precisión de la navegación.
 
 
 
@@ -79,10 +82,29 @@ Video:
 
 **1. ¿Cómo se calcula la velocidad del robot sin encoders usando PWM?**
 
-      Dado que el PWM no permite medir directamente la velocidad del robot, esta se puede estimar de forma indirecta estableciendo una relación empírica entre los valores de PWM aplicados a los motores y la velocidad resultante. Para ello, se debe realizar una calibración previa, en la cual el robot avanza con distintos valores de PWM mientras se mide el tiempo que tarda en recorrer una distancia conocida. Con estos datos, se calcula la velocidad utilizando la fórmula:
+   Dado que el PWM no permite medir directamente la velocidad del robot, esta se puede estimar de forma indirecta estableciendo una relación empírica entre los valores de PWM aplicados a los motores y la velocidad resultante. Para ello, se debe realizar una calibración previa, en la cual el robot avanza con distintos valores de PWM mientras se mide el tiempo que tarda en recorrer una distancia conocida. Con estos datos, se calcula la velocidad utilizando la fórmula:
 velocidad = distancia / tiempo.
 
 Una vez obtenidas múltiples mediciones, es posible construir una tabla o función que relacione cada nivel de PWM con una velocidad aproximada. Aunque esta estimación no es tan precisa como la que se obtendría con encoders, permite lograr un control básico de la velocidad del robot durante su operación.
+
+**2. ¿Cómo factores afectan la trayectoria y velocidad del robot al cambiar los intervalos de tiempo?**
+
+   Al modificar los intervalos de tiempo durante los cuales se activa el movimiento del robot, se afecta directamente la distancia recorrida, y por ende, su trayectoria y velocidad. Además del tiempo de activación, influyen otros factores como la duración total del movimiento, las diferencias en el rendimiento de los motores, el tipo de superficie, el peso del robot y el estado de la batería, los cuales pueden alterar el resultado final.
+   
+Por ejemplo, si un motor permanece activo más tiempo que el otro, o si existe una ligera diferencia en las velocidades de las ruedas, el robot puede desviarse de su trayectoria prevista. Asimismo, en superficies con fricción variable o con desniveles, un mismo intervalo de tiempo no garantiza que se recorra siempre la misma distancia.
+
+**3. ¿Cuáles son las ventajas y desventajas de usar un IMU para ajustar la dirección en lugar de encoders?**
+
+   Las ventajas de utilizar una IMU para ajustar la dirección, en lugar de encoders, incluyen su capacidad para detectar cambios de orientación, como giros e inclinaciones, incluso cuando las ruedas no giran correctamente. Esto resulta útil en situaciones donde hay derrapes o pérdida de tracción. Además, la IMU no requiere contacto mecánico directo con las ruedas, lo que reduce el desgaste físico del sistema.
+
+Por otro lado, entre las desventajas se encuentra que los datos del giroscopio suelen acumular errores con el tiempo (deriva), lo que disminuye la precisión en trayectorias largas. Además, una IMU no proporciona información sobre la distancia recorrida, algo que sí pueden ofrecer los encoders.
+
+**4. ¿Qué efecto tiene la inclinación o el giro en el movimiento del robot, y cómo se corrige con el IMU?**
+
+   La inclinación o el giro del robot puede alterar significativamente su movimiento, ya que modifica la distribución del peso y afecta la trayectoria sobre las ruedas. Esto puede provocar desvíos no deseados, inestabilidad o movimientos erráticos. Por ejemplo, si el robot se inclina hacia un lado, podría perder tracción en una rueda o desviarse de su trayectoria prevista.
+
+Una IMU permite detectar estos cambios mediante la medición de los ángulos de inclinación (pitch y roll) y la rotación (yaw). Con esta información, el controlador del robot puede ajustar el comportamiento de los motores, corrigiendo la trayectoria mediante un sistema de control activo; por ejemplo, reduciendo la velocidad de uno de los motores para compensar un giro.
+
 
 ---
 
