@@ -31,12 +31,24 @@ Este repositorio contendrá el desarrollo y entregas de los siguientes laborator
 
 #### Código utilizado
 
-El código utilizado para implementar los movimientos básicos del robot se encuentra en:
+El código utilizado para implementar los movimientos básicos del robot y realizar pruebas de sensores se encuentra en los siguientes archivos:
 
-[Lab1/basic_move.ino](Lab1/basic_move.ino)
+- [Lab 1/basic_move/basic_move.ino](Lab%201/basic_move/basic_move.ino)  
+  Este archivo contiene las funciones para avanzar, retroceder, girar y detenerse utilizando control PWM sobre ambos motores. El robot fue probado en distintas direcciones a una velocidad configurable.
 
-Este archivo contiene las funciones para avanzar, retroceder, girar y detenerse utilizando control PWM sobre ambos motores. El robot fue probado en distintas direcciones a una velocidad configurable.
+- [Lab 1/imu_basic_test/imu_basic_test.ino](Lab%201/imu_basic_test/imu_basic_test.ino)  
+  Este archivo realiza pruebas básicas del sensor IMU MPU9250 para leer los valores de acelerómetro y giroscopio, mostrando los datos en el monitor serial para la validación del sensor.
 
+- [Lab 1/imu_read_angles/imu_read_angles.ino](Lab%201/imu_read_angles/imu_read_angles.ino)  
+  Este script mide y muestra los ángulos de inclinación del robot (pitch y roll) utilizando el acelerómetro del sensor IMU, permitiendo analizar la inclinación del robot en tiempo real.
+
+- [Lab 1/imu_gyro_calibration/imu_gyro_calibration.ino](Lab%201/imu_gyro_calibration/imu_gyro_calibration.ino)  
+  Este archivo calibra el giroscopio del sensor IMU, calculando el sesgo (bias) de cada eje y corrigiendo las lecturas de los giroscopios para mejorar la precisión en las mediciones de movimiento.
+
+- [Lab 1/ultrasonic_distance_test/ultrasonic_distance_test.ino](Lab%201/ultrasonic_distance_test/ultrasonic_distance_test.ino)  
+  Este script prueba el sensor ultrasónico HC-SR04, midiendo distancias y mostrando los resultados en el monitor serial, permitiendo verificar el funcionamiento del sensor.
+
+Cada uno de estos archivos ha sido probado individualmente para validar el funcionamiento de los sensores y los movimientos del robot.
 ### Parte 1: Identificación de Componentes y Configuración
 - Conectar Arduino UNO con el driver de motores y programar el movimiento básico de los motores (adelante, atrás, giro) sin controlar la velocidad.
 - Verificar el funcionamiento del sensor ultrasónico HC-SR04 midiendo distancias.
