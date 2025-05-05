@@ -55,9 +55,15 @@ Cada uno de estos archivos ha sido probado individualmente para validar el funci
 - Analizar los datos del IMU MPUC6050 para medir inclinación o giros
 del robot.
 
-Demostración de avance, retroceso y giros controlados con PWM.
-[Ver video - Movimientos básicos de los motores](https://www.youtube.com/shorts/A4MSk1yM4Hs)  
+### Videos de demostración
 
+- Movimientos básicos de los motores,
+demostración de avance, retroceso y giros controlados con PWM.
+Ver video: https://youtube.com/shorts/A4MSk1yM4Hs
+
+- Control y Estimación de Movimiento en Robot Móvil con Cinemática Diferencial y Sensor IMU,
+aplicación de la ecuación de cinemática diferencial, corrección con IMU y control de velocidad por PWM.
+Ver video: https://youtu.be/SARl8lrz6Mw
 
 #### Preguntas
 **1. ¿Qué función cumplen los sensores, actuadores y controladores en el robot?**
