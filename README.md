@@ -4,11 +4,11 @@ Repositorio para el desarrollo y documentación de los laboratorios del curso **
 
 ## Integrantes del grupo
 
-- Cesar Anabalón  
-- Ulysses Barreto  
-- Felipe Bravo  
-- Matias Guerrero  
-- Fabiana Piña  
+- Cesar Crsitobal Anabalón Navarrete
+- Ulysses Edward Barreto  Horn
+- Felipe Jesus Andres Bravo Romo
+- Matias Igancio Guerrero  Castillo
+- Fabiana Andrea Piña Vera
 
 ## Contenidos
 
