@@ -4,7 +4,7 @@ Repositorio para el desarrollo y documentación de los laboratorios del curso **
 
 ## Integrantes del grupo
 
-- Cesár Crsitobal Anabalón Navarrete
+- Cesár Cristobal Anabalón Navarrete
 - Ulysses Edward Barreto  Horn
 - Felipe Jesus Andres Bravo Romo
 - Matias Ignacio Guerrero  Castillo
