@@ -41,8 +41,8 @@ void detenerse(int tiempo) {
   delay(tiempo);
 }
 
-// Función para girar a la derecha
-void girarDerecha(int tiempo, int velocidad) {
+// Función para girar a la izquierda
+void girarIzquierda(int tiempo, int velocidad) {
   digitalWrite(IN1, LOW); digitalWrite(IN2, HIGH);
   digitalWrite(IN3, HIGH); digitalWrite(IN4, LOW);
   analogWrite(ENA, velocidad);
@@ -50,8 +50,8 @@ void girarDerecha(int tiempo, int velocidad) {
   delay(tiempo);
 }
 
-// Función para girar a la izquierda
-void girarIzquierda(int tiempo, int velocidad) {
+// Función para girar a la derecha
+void girarDerecha(int tiempo, int velocidad) {
   digitalWrite(IN1, HIGH); digitalWrite(IN2, LOW);
   digitalWrite(IN3, LOW); digitalWrite(IN4, HIGH);
   analogWrite(ENA, velocidad);
