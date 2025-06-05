@@ -132,5 +132,84 @@ Una IMU permite detectar estos cambios mediante la medición de los ángulos de 
 
 
 ---
+## Laboratorio 2
+
+#### Código utilizado
+
+
+### Parte 1: Configuración del Hardware y pruebas iniciales
+
+- Conectar los sensores ultrasónicos HC-SR04 y RGB en Arduino.
+- Programar Arduino para leer la distancia con HC-SR04 y mostrarla en el monitor serie.(Video listo)
+- Programar Arduino para leer los valores RGB y mostrar el color detectado.
+- Analizar la precisión de los sensores en diferentes condiciones (luz, superficie, distancia).
+
+### Videos de demostración
+
+
+#### Preguntas
+**1. ¿Qué es la percepción en robótica y por qué es fundamental en los sistemas autónomos?**
+    
+  Es la capacidad que tiene un robot de adquirir, interpretar y procesar la información del entorno mediante el uso de los sensores. Al obtener esta información, le permite al sistema tener una visión del mundo que lo rodea, lo cual facilita la toma de decisiones y la interacción autónoma con su ambiente.
+  
+  Esto es fundamental para los sistemas autónomos porque si no se tiene percepción, el robot no puede adaptarse a los cambios que se producen en el entorno, por ejemplo detectar obstáculos, seguir rutas o interactuar con objetos. Por lo que, la percepción es el intermediario entre el ambiente y el sistema de control del robot, lo cual permite una navegación segura y eficiente.
+  
+﻿﻿**2. En el sensor ultrasónico HC-SR04 ¿ Qué parámetro se mide para calcular la distancia?**
+  
+  Lo que mide el sensor ultrasónico HC-SR04 es el tiempo que tarda una onda sonora en ir desde el emisor hasta el objeto y regresar al receptor, para lo cual se utiliza la siguiente fórmula:
+  
+  Distancia = (Tiempo x VelocidadDeSonido)/2
+  
+  Como la onda sonora realiza un viaje de ida y vuelta, se divide por 2 para así obtener el tiempo medio. Hay que considerar que la velocidad del sonido se aproxime a 343 m/s a temperatura ambiente, la cual es 20°C
+
+**3. ¿Cómo influye el ruido en las mediciones del sensor ultrasónico y cómo podría reducirse?**
+
+  El ruido en las mediciones del sensor ultrasónico se debe a múltiples factores como lo son las interferencias acústicas, superficies irregulares, materiales que absorben el sonido o ecos múltiples. Lo cual puede generar valores poco precisos, en especial en ambientes no controlados.
+  
+  Para reducir el ruido en las mediciones se puede aplicar un filtro de medida móvil o mediana para suavizar los datos, también se puede realizar varias mediciones consecutivas y tomar un promedio, otra opción es filtrar valores fuera de un rango esperado o totalmente diferentes a la lectura anterior, otra alternativa es usar materiales reflectantes frente al sensor para obtener mejores ecos, y la última posibilidad es evitar superficies con ángulos que desvíen el sonido 
+
+
+### Parte 2: Procesamiento de datos y Algoritmo de Navegación
+
+- Aplicar umbralización al sensor ultrasónico para detectar si hay un obstáculo a menos de 10cm.
+- ﻿﻿Definir umbrales para detectar colores, rojo, verde y azul usando el sensor RGB.
+﻿﻿- Implementar un algoritmo en Arduino que detenga el robot ante obstáculos y cambie de dirección según el color detectado.
+- ﻿﻿Probar navegación en un circuito con obstáculos y superficies de diferentes colores.
+- ﻿﻿Ajustar parámetros para mejorar la detección y estabilidad del sistema.
+- ﻿﻿Implementación de estrategias de navegación basadas en reglas.
+
+
+
+### Videos de demostración
+
+
+#### Preguntas
+
+**1. Si el robot detecta el color rojo en el suelo ¿ Qué acción debería tomar?¿ Por qué?**
+
+  Al momento que el robot detecta el color rojo, se puede detener inmediatamente o realizar una acción específica que ya esté programada, como lo es cambiar de dirección o retroceder. También el color rojo, puede usarse como una señal de advertencia o peligro, lo que indica al robot que no debe continuar por esa zona, por ejemplo, una zona de fin de recorrido o una zona prohibida o restringida.
+  
+  Ya que esta respuesta se basa en un acuerdo de señales visuales que ayuda a integrar reglas reactivas simples para la toma de decisiones basadas en la percepción del entorno.
+  
+**2. ﻿﻿Si el sensor ultrasónico detecta valores erráticos ¿ Qué estrategias podrías aplicar para mejorar la precisión?**
+
+  Al momento de detectar valores erráticos, se pueden utilizar las siguientes estrategias:
+  1. Filtrado de señales: donde se puede usar un filtro de media móvil para suavizar las fluctuaciones rápidas, o aplicar los filtros de Kalman si se requiere un mayor nivel de precisión y predicción.
+  2. Umbralización: Se establece un rango válido de mediciones y descartar aquellas que estén fuera de este rango.
+  3. Mediciones múltiples: Realizar de 3 a 5 mediciones y tomar la mediana o promedio para mayor confiabilidad.
+  4. Rediseñar el montaje del sensor: Donde hay que asegurar que esté bien alineado y que no tenga interferencias físicas.
+  5. Ajustar el entorno: Donde se evitan los obstáculos móviles o superficies irregulares que interfieran con el eco.
+
+
+﻿﻿**3. Si tuvieras que integrar un nuevo sensor para mejorar la navegación del robot ¿Cuál eligirías y por qué?**
+  
+  Si hay que integrar un nuevo sensor, sería el sensor LIDAR (Light Detection and Ranging), dado que este permite obtener mapas más precisos del entorno mediante el uso de láseres. A diferencia del sensor ultrasónico, el LIDAR tiene mayor resolución y rango de detección, también tiene menor susceptibilidad al ruido ambiental y por último su capacidad de generar mapas en 2D o 3D del entorno en tiempo real. Lo cual permitiría una navegación más precisa y robusta, sobre todo en entornos complejos o donde hay múltiples obstáculos.  
+
+﻿﻿**4. ¿Cuál es el tiempo de respuesta del robot al detectar un cambio de color?**
+  
+  El tiempo de respuesta que tiene el robot al detectar un cambio de color depende de varios factores como lo son la frecuencia de lectura del sensor RGB, la velocidad de procesamiento del Arduino y la ejecución del algoritmo de control. En condiciones ideales, el tiempo de respuesta del robot al detectar un cambio de color suele estar en un rango de decenas a cientos de milisegundos, por ejemplo entre 100 y 300 ms. Por lo que el tiempo depende del rendimiento del código, la eficiencia  en la lectura de sensores y la carga de procesamiento.
+
+
+---
 
 > Este archivo será actualizado a medida que avancemos con las entregas.
