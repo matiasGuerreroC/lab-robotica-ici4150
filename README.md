@@ -135,7 +135,16 @@ Una IMU permite detectar estos cambios mediante la medición de los ángulos de 
 ## Laboratorio 2
 
 #### Código utilizado
+El código utilizado para la configuración de sensores, lectura de datos y la implementación del algoritmo de navegación autónoma se encuentra en los siguientes archivos:
 
+- [Lab 2/ultrasonic_read_distance/ultrasonic_read_distance.ino](Lab%202/ultrasonic_read_distance/ultrasonic_read_distance.ino)
+  Este archivo contiene el código para realizar la lectura de distancias utilizando el sensor ultrasónico HC-SR04. Las mediciones se muestran en el monitor serial, permitiendo validar el funcionamiento básico del sensor en condiciones controladas. Fue utilizado en la etapa de pruebas iniciales para verificar la precisión a diferentes distancias y con distintas superficies.
+- [Lab 2/ultrasonic_threshold_detect/ultrasonic_threshold_detect.ino](Lab%202/ultrasonic_threshold_detect/ultrasonic_threshold_detect.ino)
+  Este script aplica umbralización al sensor ultrasónico, generando una respuesta lógica si se detecta un obstáculo a menos de 10 cm. Es una base fundamental para la navegación autónoma del robot, ya que permite detener el movimiento o modificar la dirección al identificar objetos cercanos. La detección se prueba en tiempo real y se muestra en el monitor serial.
+- [Lab 2/servo_sweep_test/servo_sweep_test.ino](Lab%202/servo_sweep_test/servo_sweep_test.ino)
+  Este archivo permite probar el movimiento de un servo motor mediante un barrido angular (sweep). Se utiliza para validar la conexión, el control y el rango de giro del servo, el cual puede ser parte de un sistema de exploración activa o direccionamiento de sensores. El ángulo del servo es mostrado en el monitor serial durante el barrido.
+- [Lab 2/color_sensor_detect/color_sensor_detect.ino](Lab%202/color_sensor_detect/color_sensor_detect.ino)
+  Este script implementa la lectura de valores RGB a partir de un sensor de color y clasifica los colores detectados según umbrales definidos para rojo, verde y azul. El color identificado se muestra en el monitor serial, y el sistema fue probado bajo diferentes condiciones de iluminación y tipos de superficie para ajustar la precisión del reconocimiento.
 
 ### Parte 1: Configuración del Hardware y pruebas iniciales
 
@@ -145,7 +154,14 @@ Una IMU permite detectar estos cambios mediante la medición de los ángulos de 
 - Analizar la precisión de los sensores en diferentes condiciones (luz, superficie, distancia).
 
 ### Videos de demostración
+- Lectura de distancia con sensor ultrasónico, medición de distancia utilizando el sensor HC-SR04, mostrando los valores en el monitor serial para validar su funcionamiento.
+Ver video: https://youtube.com/shorts/zzdRjlIhOuk?feature=share
 
+- Detección de obstáculos mediante umbralización, aplicación de un umbral de 10 cm para identificar la presencia de obstáculos y generar una respuesta lógica en tiempo real.
+Ver video: https://youtube.com/shorts/xhiVeXC0McM?feature=share
+
+- Detección de color con sensor RGB, clasificación de colores rojo, verde y azul mediante el uso de umbrales en los valores RGB capturados por el sensor.
+Ver video: https://youtu.be/XJEscTwzXKM
 
 #### Preguntas
 **1. ¿Qué es la percepción en robótica y por qué es fundamental en los sistemas autónomos?**
