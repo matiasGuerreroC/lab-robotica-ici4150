@@ -145,6 +145,10 @@ El código utilizado para la configuración de sensores, lectura de datos y la i
   Este archivo permite probar el movimiento de un servo motor mediante un barrido angular (sweep). Se utiliza para validar la conexión, el control y el rango de giro del servo, el cual puede ser parte de un sistema de exploración activa o direccionamiento de sensores. El ángulo del servo es mostrado en el monitor serial durante el barrido.
 - [Lab 2/color_sensor_detect/color_sensor_detect.ino](Lab%202/color_sensor_detect/color_sensor_detect.ino)
   Este script implementa la lectura de valores RGB a partir de un sensor de color y clasifica los colores detectados según umbrales definidos para rojo, verde y azul. El color identificado se muestra en el monitor serial, y el sistema fue probado bajo diferentes condiciones de iluminación y tipos de superficie para ajustar la precisión del reconocimiento.
+- [Lab 2/ruled_movement_algorithm/ruled_movement_algorithm.ino](Lab%202/ruled_movement_algorithm/ruled_movement_algorithm.ino)
+  Este algoritmo permite que el robot avance mientras no detecte obstáculos usando un sensor ultrasónico. Al encontrar un obstáculo, se detiene y emplea un sensor de color para identificar el color del suelo, lo que determina su próxima acción: girar, retroceder o detenerse, dependiendo del color detectado (rojo, azul, negro, etc.). Además, gestiona motores, servo y sensores mediante instrucciones temporizadas para ejecutar los movimientos y decisiones en tiempo real. 
+  A pesar de los intentos reiterados de implementación, el robot no logró ejecutar correctamente el comportamiento esperado. Estimamos que el error se debe a un uso excesivo de memoria, probablemente por la carga combinada de sensores, motores y procesos simultáneos, lo cual sobrepasa la capacidad del microcontrolador utilizado.
+
 
 ### Parte 1: Configuración del Hardware y pruebas iniciales
 
@@ -193,10 +197,6 @@ Ver video: https://youtu.be/XJEscTwzXKM
 - ﻿﻿Probar navegación en un circuito con obstáculos y superficies de diferentes colores.
 - ﻿﻿Ajustar parámetros para mejorar la detección y estabilidad del sistema.
 - ﻿﻿Implementación de estrategias de navegación basadas en reglas.
-
-
-
-### Videos de demostración
 
 
 #### Preguntas
