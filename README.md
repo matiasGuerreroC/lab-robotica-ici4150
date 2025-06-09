@@ -227,6 +227,7 @@ Ver video: https://youtu.be/XJEscTwzXKM
 
 
 ### Posibles mejoras
+
 En la siguiente sección se plantea un análisis de posibles mejoras contemplando ambas partes del laboratorio 2.
 
 **1. Promediado inteligente de lecturas del sensor ultrasónico**
@@ -252,7 +253,9 @@ El sensor RGB puede verse afectado por la intensidad de luz ambiental o el tipo 
 Realizar lo anterior, aplicaría los conceptos de percepción adaptativa mencionados en la Parte 1. Aumentaría la confiabilidad en la decisión basada en colores, clave para que el robot actúe correctamente ante rojo, azul o negro. Y por último, mejoraría el tiempo de respuesta descrito en la pregunta 4 (Parte 2) al reducir errores de lectura por condiciones externas.
 
 **3. Integración de sensores infrarrojos para lectura de superficie (complemento del RGB)**
-Los sensores RGB pueden tener limitaciones al distinguir colores oscuros (como el negro) sobre superficies con brillo o textura. Integrar sensores infrarrojos (IR) de reflexión ayudaría a reforzar la detección de cambios bruscos en la reflectancia (como líneas negras). Para incorporar esta mejora, se sugiere añadir un sensor IR adicional bajo el robot, combinando la lógica RGB + IR, de forma que, si el RGB no puede distinguir el color pero el IR detecta baja reflexión, se asuma color negro. Aplicar lo anterior, respalda la lógica del algoritmo de navegación con una redundancia que reduce falsos positivos/negativos, complementa la detección en circuitos con colores mal iluminados o superficies no mates. Y por último, mejora la robustez general del sistema perceptivo, lo cual es una recomendación alineada con la pregunta 1 de percepción.
+Los sensores RGB pueden tener limitaciones al distinguir colores oscuros (como el negro) sobre superficies con brillo o textura. Integrar sensores infrarrojos (IR) de reflexión ayudaría a reforzar la detección de cambios bruscos en la reflectancia (como líneas negras). Para incorporar esta mejora, se sugiere añadir un sensor IR adicional bajo el robot, combinando la lógica RGB + IR, de forma que, si el RGB no puede distinguir el color pero el IR detecta baja reflexión, se asuma color negro. Aplicar lo anterior, respalda la lógica del algoritmo de navegación con una redundancia que reduce falsos positivos/negativos, complementa la detección en circuitos con colores mal iluiminados o superficies no mates. y por útlimo, mejora la robustez general del sistema perceptivo, lo cual es una recomendación alineada con la pregunta 1 de percepción.
+
+
 ---
 
 > Este archivo será actualizado a medida que avancemos con las entregas.
